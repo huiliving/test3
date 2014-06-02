@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Dream Incubation</title>
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<!--登录界面引用-->
+<link href="js/treeview/jquery.treeview.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script src="js/treeview/jquery.treeview.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/tinybox.js"></script>
+<!--Tab实现方法-->
+<script type="text/javascript" src="js/tab.js"></script>
+<!--背景图片透明方法-->
+<script type="text/javascript" src="js/iepng.js"></script>
+<!--Map方法-->
+<script type="text/javascript" src="js/map.js"></script>
+<!--插入图片透明方法-->
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input');  //EvPNG.fix('包含透明PNG图片的标签'); 多个标签之间用英文逗号隔开。
+</script>
+<!--天气预报实现方法-->
+<script src="uisy/sprite/jquery.js"></script> 
+<script src="uisy/sprite/daluzai.js" language="javascript" type="text/javascript" charset="UTF-8"></script>
+<script src="uisy/sprite/weather.js" language="javascript" type="text/javascript" charset="UTF-8"></script>
+<!--CSS+JS控制图片展示效果-->
+<script type="text/javascript" src="js/photo_display.js"></script>
+
+<script type="text/javascript">
+
+	function toueme(){
+		document.getElementById("show").style.display="none";
+	}
+		function weatherclose(){
+		document.getElementById("weather_res_case").style.display="none";
+	}
+	
+</script>
+
+
+<!--Map开发案例-->
+<script language="javascript" src="http://app.mapabc.com/apis?t=javascriptmap&v=3&key=b0a7db0b3a30f944a21c3682064dc70ef5b738b062f6479a5eca39725798b1ee300bd8d5de3a4ae3"></script>
+
+
+</head>
+
+<body  onload="showbeni();mapInit();start();">
+
+<div id="banner">
+<div>
+<!--天气预报 -->
+<form action="#" onSubmit="return false;">
+  <div id="weather_search" class="weather_conn form_val">
+      <input name="city" type="text" style="width:80px; height:18px;" />
+  </div>
+  <div id="weather_sub" class="form_sub">
+     <input name="call" type="button" value="查询" title="天气预报查询"/>
+</div>
+        <div class="weather_author" id="weather_author"></div>
+</form>
+<div>
+<div class="weather_res_case common_hide" id="weather_res_case">
+<div id="weatherclose"><a style="CURSOR: hand" onClick=weatherclose()><img src="uisy/skin/close.jpg" /></a></div>
+<dl class="weather_res_item weather_res_today">
+        <dd class="weather_res_dis_img" id="T_weather_img"></dd>
+    </dl>
+    <dl class="weather_res_item weather_res_stoday">
+        <dd><b id="city"></b></dd>
+        <dd>实时气温:<span id="temperature"></span></dd>
+        <dd>天气情况:<span id="weather"></span></dd>
+        <dd>风向情况:<span id="direction"></span></dd>
+        <dd>风力情况:<span id="wind"></span></dd>
+    </dl>
+    <div class="clear_debug"></div>
+</div>
+</div>
+<!--天气预报 -->
+</div>
+<ul>
+<li>
+ <a href="#" id="click_test1">Sign In</a>
+</li>
+<li><a href="demo.html">Register</a></li>
+
+</ul>
+
+</div>
+
+<div id="container">
+
+<div id="show">
+<div id="showclose"><a style="CURSOR: hand" onClick=toueme()><img src="images/close.jpg" /></a></div>
+
+<div id="left1" onmouseover="this.style.backgroundColor='#F4F9FD'"onmouseout="this.style.backgroundColor='#D6D6D6'">
+<div id="left1back">
+<div id="tab1" class="photo2"><a href="#"><img src="images/2.png" border="0" alt=""/><span>2013年12月24日英国女王伊莉莎白二世赦免上世纪50年代因同性恋行为被定罪的英国著名数学家、密码学家、计算机科学之父阿兰·图灵(Alan Turing)。</span></a></div>
+</div>
+</div>
+
+<div id="center1" onmouseover="this.style.backgroundColor='#F4F9FD'"onmouseout="this.style.backgroundColor='#D6D6D6'">
+   <div id="center1back" >
+   <div id="tab1" class="photo"><a href="#"><img src="images/1.png" border="0" alt=""/>
+<span>在你生命的最初30年中，你养成习惯；在你生命的最后30中，你的习惯决定了你。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——乔布斯</span></a></div> 
+   </div>
+   </div>
+<div id="right1" onmouseover="this.style.backgroundColor='#F4F9FD'"onmouseout="this.style.backgroundColor='#D6D6D6'">
+   <div id="right1back"> 
+      <div id="tab1" class="photo2"><a href="#"><img src="images/2.png" border="0" alt=""/><span>“做企业就像吃玻璃，以及凝视着死亡的深渊……如果这看起来很吸引人的话……”他露出意味深长的微笑。</span></a></div>
+    </div>
+   </div>
+</div>   
+ 
+<div id="centerblock">
+<div class="cls_tab_nav_li_last">
+ <a href="#">contact us  </a>
+  
+  </div>
+<div>
+<div id="tab_container1" style="width:1200px;" >
+ <div class="cls_tab_nav">
+  <ul>
+   <li class="cls_tab_nav_li cls_tab_nav_li_first"><a href="#">首页</a></li>
+   <li class="cls_tab_nav_li"><a href="#">实验室</a></li>
+   <li class="cls_tab_nav_li"><a href="#">学习资源分享</a></li>
+   <li class="cls_tab_nav_li"><a href="#">向大师致敬</a></li>
+   <li class="cls_tab_nav_li"><a href="#">校园部落计划</a></li>
+   <li class="cls_tab_nav_li"><a href="#">关于我们</a></li>
+  </ul>
+ </div>
+<!--横向tab -->
+ <div class="cls_tab_body">
+  <div class="cls_div" style="display:block;">
+  <!--竖向tab -->
+<div id="lib_Tab1_sx" class="lib_tabborder_sx">
+<div class="lib_Menubox_sx ">
+<ul>
+   <li id="one1" onclick="setTab('one',1,5)" class="hover">栏目1</li>
+   <li id="one2" onclick="setTab('one',2,5)" >栏目2</li>
+   <li id="one3" onclick="setTab('one',3,5)">栏目3</li>   
+   <li id="one4" onclick="setTab('one',4,5)">栏目4</li>
+   <li id="one5" onclick="setTab('one',5,5)">栏目5</li>
+</ul>
+</div>
+ <div class="lib_Contentbox_sx ">  
+   <div id="con_one_1" >栏目列表1</div>
+   <div id="con_one_2" style="display:none">栏目列表2歌手介绍：</div>
+   <div id="con_one_3" style="display:none">栏目列表3</div>
+   <div id="con_one_4" style="display:none">栏目列表4</div> 
+   <div id="con_one_5" style="display:none">栏目列表5</div> 
+ </div>
+</div>
+<div style="width:710px; position:absolute;top:45px;right:8px;">
+  <DIV id="focus">
+   <UL id="beni">
+     <LI class=first><A href="#">Opere e oggetti d'arte</A></LI>
+     <LI><A href="#">Architetture</A></LI>
+     <LI><A href="#">Reperti archeologici</A></LI>
+     <LI><A href="#">Stampe e matrici di incisione</A></LI>
+     <LI><A href="#">Fotografie</A></LI>
+     <LI><A href="#">Beni etnoantropologici</A></LI>
+   </UL>
+</DIV>
+</div>
+
+</div>
+  <div class="cls_div">
+  <div id="lib_Tab1_sx" class="lib_tabborder_sx">
+<div class="lib_Menubox_sx ">
+<ul>
+   <li id="two1" onclick="setTab('two',1,5)" class="hover">栏目1</li>
+   <li id="two2" onclick="setTab('two',2,5)" >栏目2</li>
+   <li id="two3" onclick="setTab('two',3,5)">栏目3</li>   
+   <li id="two4" onclick="setTab('two',4,5)">栏目4</li>
+   <li id="two5" onclick="setTab('two',5,5)">栏目5</li>
+</ul>
+</div>
+ <div class="lib_Contentbox_sx ">  
+   <div id="con_two_1" >栏目列表1</div>
+   <div id="con_two_2" style="display:none">栏目列表2歌手介绍：</div>
+   <div id="con_two_3" style="display:none">栏目列表3</div>
+   <div id="con_two_4" style="display:none">栏目列表4</div> 
+   <div id="con_two_5" style="display:none">栏目列表5</div> 
+ </div>
+</div>
+
+  </div>
+  <div class="cls_div">选项卡3</div>
+  <div class="cls_div">
+  
+  
+  </div>
+  <div class="cls_div">
+  	<!--校园地图展示区域（研发中...） -->
+
+				<div id="iCenter" style="height:347px; width:1200px; position:absolute; left:0px; top:35px;"></div>
+
+    </div>
+  <div class="cls_div"> 
+<div id="declaration" style="position:absolute; background:url(images/Promise.jpg);left:20px; top:40px; width:350px; height:340px;" ></div>
+  <div id="flash" style="position:absolute; right:402px; top:50px;">
+  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="396" height="210" title="Declaration of Dream" wmode="opaque">
+    <param name="movie" value="1.swf" />
+    <param name="quality" value="high" />
+    <embed src="1.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="396" height="210" wmode="opaque"></embed>
+  </object>
+  </div>
+<div id="declaration" style="position:absolute; background:url(images/guanyuwomen2.jpg);right:20px; top:40px; width:350px; height:340px;" ></div>
+   
+  </div>
+ </div>
+ </div>
+</div>
+
+
+</div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+T$('click_test1').onclick = function(){TINY.box.show('demo.html',1,300,150,1)}
+
+
+    //创建天气预报核心对象
+var weather_=new weather();
+
+//设置样式
+weather_.getStyle('qq');
+
+//输入框的默认提示
+def_value('weather_search','城市天气查询');
+
+//监听用户事件
+onEvent.onEvent();
+
+//查看版本号
+//weather_.help('ver');
+    </script>
+</body>
+</html>
